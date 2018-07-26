@@ -1,0 +1,49 @@
+#!/usr/bin/env python
+
+from emailtasker import Tasker
+import argparse
+from argparse import RawTextHelpFormatter
+
+
+help_txt = """A python configuration file with the following fields:
+        \n\n\n
+        [admin]
+        email_user_envkey: the environment variable storing the user's email address
+        email_pass_envkey: the environment variable storing the user's email password
+        mailbox: the name of the mailbox for the associated address to monitor
+        smtp_server: the smtp server to send emails through
+        smtp_port: the port to connect to the smtp imap_server
+        imap_server: the imap server to monitor
+        imap_port: the port to connect to the imap server over
+        \n\n
+        [task]
+        taskname: a name for the task
+        command: the command line program and arguments to execute
+        tasktag: a tag associated with your task. it may make it easier to autofilter emailtasker related emails on your email account
+        log_file_name: the name of a file to log program output to
+        \n\n
+        [monitor]
+        restart_kw: keyword in reply emails to restart the task
+        exit_kw: keyword in reply emails to stop runnning the task
+        sleep: time in seconds to wait before rechecking email inbox
+        timeout: time in seconds before the task will automatically exit and the user can no longer restart the program"""
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(description="Start a program locally and restart it remotely via email if it crashes.",
+                                     formatter_class=RawTextHelpFormatter)
+    parser.add_argument('-c',
+                        '--config',
+                        help=help_txt,
+                        required=True)
+    parser.add_argument("-v",
+                        "--verbose",
+                        help="Increased output on user console. May be helpful in debugging.",
+                        required=False,
+                        type=bool,
+                        default=False)
+
+    args = parser.parse_args()
+
+    task = Tasker(task_config_file=args.config, verbose=args.verbose)
+    task.run()
