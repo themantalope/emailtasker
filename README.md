@@ -17,6 +17,15 @@ Otherwise you can install normally with:
 python setup.py install
 ```
 
+## Example
+After installation you should have the `emailtasker` script available. You can run it after configuring the `GMAIL_USERNAME` and `GMAIL_PASS` environment variables on your machine. Likewise you can also edit the `test.ini` file with your environment variables containing the email and password data. If you are not using gmail then you will need to configure the `test.ini` file for your email service.
+
+
+Also recommended is that your navigate to the test folder and run `python fail_script.py` to see what should happen.
+
+
+If all works as expected, you should start to see emails coming from the configured email account.
+
 ## License
 Released under the MIT license.
 
