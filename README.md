@@ -63,13 +63,18 @@ optional arguments:
 
                                 [monitor]
                                 restart_kw: keyword in reply emails to restart the task
-                                exit_kw: keyword in reply emails to stop runnning the task
+                                exit_kw: keyword in reply emails to stop running the task
                                 sleep: time in seconds to wait before rechecking email inbox
                                 timeout: time in seconds before the task will automatically exit and the user can no longer restart the program
   -v VERBOSE, --verbose VERBOSE
                         Increased output on user console. May be helpful in debugging.
-
 ```
+## TODOs/features to potentially address
+- More options for restart. Eg restart task in x number of minutes.
+- A method for starting the task and sending emails to multiple users who may have differing levels of privilege for restarting/stopping the task.
+- Possible (not sure, poses security risks) to add methods to change command or input arguments when restarting. Would need input/recs from someone with experience in this.
+- Allow the config file to be updated over email. Again this poses security risks so only certain parts may be able to be updated. Would need input about this and how to do so safely.
+
 ## License
 Released under the MIT license.
 

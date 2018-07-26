@@ -24,7 +24,7 @@ help_txt = """A python configuration file (.ini) with the following fields/forma
         \n\n
         [monitor]
         restart_kw: keyword in reply emails to restart the task
-        exit_kw: keyword in reply emails to stop runnning the task
+        exit_kw: keyword in reply emails to stop running the task
         sleep: time in seconds to wait before rechecking email inbox
         timeout: time in seconds before the task will automatically exit and the user can no longer restart the program"""
 
