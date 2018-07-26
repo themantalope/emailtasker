@@ -26,6 +26,50 @@ Also recommended is that your navigate to the test folder and run `python fail_s
 
 If all works as expected, you should start to see emails coming from the configured email account.
 
+## `emailtasker` command line script basics
+
+```bash
+$ emailtasker --help
+usage: emailtasker [-h] -c CONFIG [-v VERBOSE]
+
+Start a program locally and restart it remotely via email if it crashes.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c CONFIG, --config CONFIG
+                        A python configuration file with the following fields:
+
+
+
+
+                                [admin]
+                                email_user_envkey: the environment variable storing the user's email address
+                                email_pass_envkey: the environment variable storing the user's email password
+                                mailbox: the name of the mailbox for the associated address to monitor
+                                smtp_server: the smtp server to send emails through
+                                smtp_port: the port to connect to the smtp imap_server
+                                imap_server: the imap server to monitor
+                                imap_port: the port to connect to the imap server over
+
+
+
+                                [task]
+                                taskname: a name for the task
+                                command: the command line program and arguments to execute
+                                tasktag: a tag associated with your task. it may make it easier to autofilter emailtasker related emails on your email account
+                                log_file_name: the name of a file to log program output to
+
+
+
+                                [monitor]
+                                restart_kw: keyword in reply emails to restart the task
+                                exit_kw: keyword in reply emails to stop runnning the task
+                                sleep: time in seconds to wait before rechecking email inbox
+                                timeout: time in seconds before the task will automatically exit and the user can no longer restart the program
+  -v VERBOSE, --verbose VERBOSE
+                        Increased output on user console. May be helpful in debugging.
+
+```
 ## License
 Released under the MIT license.
 
