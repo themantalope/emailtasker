@@ -83,7 +83,8 @@ class Tasker(object):
                     while stdoutline != "":
                         logf.write(stdoutline)
                         if self.verbose:
-                            print(stdoutline)
+                            # print(stdoutline, flush=True)
+                            sys.stdout.write(stdoutline)
                             sys.stdout.flush()
                         stdoutline = self.process.stdout.readline().decode("utf-8")
 

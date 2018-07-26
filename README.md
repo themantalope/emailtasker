@@ -23,6 +23,10 @@ After installation you should have the `emailtasker` script available. You can r
 
 Also recommended is that your navigate to the test folder and run `python fail_script.py` to see what should happen.
 
+To launch the example, simply navigate to the `test` directory and run the command:
+```bash
+emailtasker -c test.ini
+```
 
 If all works as expected, you should start to see emails coming from the configured email account.
 

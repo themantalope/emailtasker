@@ -3,10 +3,11 @@
 from emailtasker import Tasker
 import argparse
 from argparse import RawTextHelpFormatter
+import os
 
 
 help_txt = """A python configuration file (.ini) with the following fields/format:
-        \n\n\n
+        \n\n
         [admin]
         email_user_envkey: the environment variable storing the user's email address
         email_pass_envkey: the environment variable storing the user's email password
@@ -30,7 +31,7 @@ help_txt = """A python configuration file (.ini) with the following fields/forma
 
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser(description="Start a program locally and restart it remotely via email if it crashes.",
+    parser = argparse.ArgumentParser(description="Start a program and restart it remotely via email if it crashes.",
                                      formatter_class=RawTextHelpFormatter)
     parser.add_argument('-c',
                         '--config',
@@ -44,6 +45,7 @@ if __name__ == "__main__":
                         default=False)
 
     args = parser.parse_args()
+    assert os.path.isfile(args.config), "'{cf}' configuration file not found!".format(cf=self.args.config)
 
     task = Tasker(task_config_file=args.config, verbose=args.verbose)
     task.run()
