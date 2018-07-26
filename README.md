@@ -1,1 +1,3 @@
-emailtasker
+# emailtasker
+
+Restart command line programs via email.
