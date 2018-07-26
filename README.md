@@ -37,7 +37,7 @@ Start a program locally and restart it remotely via email if it crashes.
 optional arguments:
   -h, --help            show this help message and exit
   -c CONFIG, --config CONFIG
-                        A python configuration file with the following fields:
+                        A python configuration file (.ini) with the following fields/format:
 
 
 
