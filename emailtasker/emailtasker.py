@@ -121,7 +121,7 @@ class Tasker(object):
 
 
     def send_exit_email(self):
-        message_bod = "You have chosen to exit task '{tn}'' with pid {pid}.".format(tn=self.config['task']['taskname'],
+        message_bod = "You have chosen to exit task '{tn}' with pid {pid}.".format(tn=self.config['task']['taskname'],
                                                                                  pid=self.process.pid)
         message_bod += "\n\nThanks for using emailtakser! Bye!"
         subject = "Re: " + self.task_email_subject
